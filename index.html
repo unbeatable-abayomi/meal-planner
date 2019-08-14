@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body>
+     <div class="main-container">
+         <div class="image-container">
+                <div class="image-text">
+                        <h1>FrontEnd<br/>Training <br/>Meal Planner App </h1>
+                </div>   
+                  
+         </div>
+       
+         
+             <div class="new"> 
+                 <div class="search-for-meal">
+                  <form>
+                     <input type="text" class="search-for-meal-input" placeholder="e.g Ofada Rice"> <button class="search-for-meal-button">search meal</button>
+                   </form>
+                </div>
+                 
+             </div>
+          
+             <div>
+                <button class="create_a_plan"> Create A Plan</button>
+             </div>
+            
+             
+
+             <div class="dishes-container-one">
+                  <div class="first-dish">
+                    <img src="http://i65.tinypic.com/2zh31tv.jpg" width="300px" height="250px" >
+                    <button class="btn-lunch">Breakfast</button>
+                    <div class="first-dish-lower-div">
+                        <h2>Ofada Rice</h2>
+                        <h4>view recipe</h4>
+                        <p>Monday-<time
+                            datetime="2019-05-15T19:00">May 15 2019</time>.</p>
+                    </div>
+                   
+                 </div>
+                 <div class="second-dish">
+                    <img src="http://i63.tinypic.com/wu074p.jpg" width="300px" height="250px">
+                    <button class="btn-lunch">lunch</button>
+                    <div class="second-dish-lower-div">
+                            <h2>Amala and Ewedu</h2>
+                            <h4>view recipe</h4>
+                            <p>Monday-<time
+                                datetime="2019-05-15T19:00">May 15 2019</time>.</p>
+                        </div>
+                 </div>
+                 <div class="third-dish">
+                        <img src="http://i67.tinypic.com/2yv5540.jpg"  width="300px" height="250px" >
+                        <button class="btn-lunch">Dinner</button>
+                        <div class="third-dish-lower-div">
+                                <h2>Afang Soup</h2>
+                                <h4>view recipe</h4>
+                                <p>Monday-<time
+                                    datetime="2019-05-15T19:00">May 15 2019</time>.</p>
+                            </div>
+                 </div>
+             </div>
+
+             <!-- second session divs -->
+             <div class="dishes-container-two">
+                    <div class="fourth-dish">
+                      <img src="http://i67.tinypic.com/25heq9u.jpg" width="300px" height="250px" >
+                      <button class="btn-lunch">lunch</button>
+                      <div class="fourth-dish-lower-div">
+                          <h2>Jollof Rice</h2>
+                          <h4>view recipe</h4>
+                          <p>Monday-<time
+                              datetime="2019-05-15T19:00">May 15 2019</time>.</p>
+                      </div>
+                      <div>
+  
+                      </div>
+                   </div>
+                   <div class="fifth-dish">
+                      <img src="http://i68.tinypic.com/1z3qw7t.jpg" width="300px" height="250px">
+                      <button class="btn-lunch">Breakfast</button>
+                      <div class="fifth-dish-lower-div">
+                              <h2>JamicianCurry</h2>
+                              <h4>view recipe</h4>
+                              <p>Monday-<time
+                                  datetime="2019-05-15T19:00">May 15 2019</time>.</p>
+                          </div>
+                   </div>
+                   <div class="sixth-dish">
+                          <img src="http://i66.tinypic.com/2a4uyib.jpg"  width="300px" height="250px" >
+                          <button class="btn-lunch">lunch</button>
+                          <div class="sixth-dish-lower-div">
+                                  <h2>Afang Soup</h2>
+                                  <h4>view recipe</h4>
+                                  <p>Monday-<time
+                                      datetime="2019-05-15T19:00">May 15 2019</time>.</p>
+                              </div>
+                            </div>
+                           
+                        </div>
+            <div class="dishes-container-three">
+                
+            </div>
+                       
+<div class="container-form">
+    <form id="post_data">
+        <h2 class="meal-plan-text">Add a new meal plan</h2>
+
+       <span class="meal-plan-text" >Meal name :</span>
+
+       <span class="category-span">Category</span> <br>
+     
+     <input type="text" class="first-input"> 
+        <select name="meals" class="meal-period">
+            <option value="Breakfast">breakfast</option>
+            <option value="Lunch">lunch</option>
+            <option value="Dinner">dinner</option>
+        </select>
+       
+       
+       <p class="meal-plan-text" id="tool">Recipe link</p><br>
+       
+       <input type="text" class="third-input"> <br>
+       
+       <p class="meal-plan-text" id="wool">When will you cook this meal?</p>
+       
+       <input type="date" class="fourth-input"> <br>
+       
+       <p class="meal-plan-text" id="cool" >Add image link</p><br>
+       
+       <input type="text" class="fifth-input"> <br>
+       
+       <input type="submit" class="create-plan">
+    
+       <button class="delete">opt out</button>
+     
+    
+    </form>
+</div>   
+        
+     </div>
+
+     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script src="app.js"></script>
+    <script>
+    getData();
+    </script>
+   
+</body>
+</html>
