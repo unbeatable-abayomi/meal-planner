@@ -15,9 +15,10 @@
   height: 500px;
 } 
 .search-for-meal{
-    margin-left: 125px;
+    margin-left: 32rem;
     margin-top: 40px;
     margin-bottom: 40px;
+    /* margin-right: -20rem; */
     
 }
 .search-for-meal-input{
@@ -52,8 +53,8 @@ filter: alpha(opacity=60);
      color: #fff;
      border: none;
      position: absolute;
-     right:  5vh;
-     bottom: 16vh;
+     right:  19vh;
+     bottom: 14.5vh;
 }
 .delete{
     width: 96px;
@@ -210,18 +211,28 @@ select{
     margin-left: 30px;
     width: 35%;
 }
+.recipe-button{
+    box-shadow: 1px 0px 1px 0px;
+    background:  rgb(60, 235, 60); 
+    border: none;
+    color: #fff;
+    border-radius: 3px;
+    width: 80px;
+    height: 20px;
+}
 @media (min-width: 290px ) and (max-width: 768px ){
    
     .image-container{
         width: 100%;
     }
     .search-for-meal{
-        margin-left: 5rem;
+        margin-left: 3rem;
         margin-top: 7rem;
     }
     .create_a_plan{
-        margin-bottom: 1rem;
-        margin-right: -1rem;
+        margin-bottom: 1.5rem;
+        /* margin-right: -1rem; */
+        margin-right: -6rem;
     }
     .first-dish,
     .second-dish,
@@ -238,5 +249,47 @@ select{
     }
     .image-text{
         font-size: 1.5rem;
+    }
+}
+@media (max-width: 425px){
+    .search-for-meal{
+        margin-left: 4rem;
+        margin-top: 7rem;
+    }
+    .create_a_plan{
+        margin-bottom: -5rem;
+        /* margin-right: -1rem; */
+        margin-right: 3.6rem;
+    }
+}
+
+@media (max-width: 400px){
+    .create_a_plan{
+        margin-top: 1.2rem;
+        margin-bottom: -.1rem;
+        margin-right: 1rem;
+    }
+}
+@media (max-width: 375px){
+    .create_a_plan{
+        margin-bottom: -2.2rem;
+        margin-right: 1rem;
+    }
+    .search-for-meal{
+        margin-left: 2.5rem;
+        margin-top: 7rem;
+    }
+  
+}
+@media (max-width: 320px){
+    .search-for-meal-input{
+        margin-left: 2rem;
+    }
+    .search-for-meal-button{
+        margin-top: 1rem;
+        margin-left: 5rem;
+    }
+    .create_a_plan{
+        margin-right: -1.2rem;
     }
 }
