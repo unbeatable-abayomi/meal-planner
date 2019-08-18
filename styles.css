@@ -230,7 +230,6 @@ select {
 	}
 	.create_a_plan {
 		margin-bottom: 1.5rem;
-		/* margin-right: -1rem; */
 		margin-right: -6rem;
 	}
 	.first-dish,
@@ -263,8 +262,12 @@ select {
         margin-bottom: 6rem;
     }
     .category-span {
-        margin-left: 67px;
-    }
+        margin-left: 60px;
+	}
+	.meal-period{
+		height: 27px;
+		width: 82px;
+	}
 }
 
 @media (max-width: 400px) {
