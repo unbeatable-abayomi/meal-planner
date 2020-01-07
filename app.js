@@ -1,91 +1,88 @@
-"use strict"
+'use strict';
 let my_form = document.querySelector('#post_data');
 let name = document.querySelector('.first-input');
 let category = document.querySelector('.meal-period');
-let recipeLink = document.querySelector('.third-input')
-let cookDate = document.querySelector('.fourth-input')
-let imageLink = document.querySelector('.fifth-input')
+let recipeLink = document.querySelector('.third-input');
+let cookDate = document.querySelector('.fourth-input');
+let imageLink = document.querySelector('.fifth-input');
 let dishes = document.querySelector('.dishes-container-three');
 
-document.querySelector(".create_a_plan").addEventListener('click', (e)=>{
-   e.preventDefault() 
-   document.querySelector(".container-form").style.display = 'block'; 
-})
+document.querySelector('.create_a_plan').addEventListener('click', (e) => {
+	e.preventDefault();
+	document.querySelector('.container-form').style.display = 'block';
+});
 
+document.querySelector('.delete').addEventListener('click', (e) => {
+	e.preventDefault();
+	document.querySelector('.container-form').style.display = 'none';
+});
 
-document.querySelector(".delete").addEventListener('click', (e)=>{
-   e.preventDefault()
-    document.querySelector(".container-form").style.display = 'none'; 
-})
-
-const api_key ='keyCG9udfoxuLbYEj';
+const api_key = 'keyCG9udfoxuLbYEj';
 axios.defaults.baseURL = 'https://api.airtable.com/v0/apphTMQhXgmltakx8/';
-axios.defaults.headers.common['Authorization']= `Bearer ${api_key}`;
+axios.defaults.headers.common['Authorization'] = `Bearer ${api_key}`;
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 function getData() {
-    axios.get('/meal_planner')
-    .then((response) => {
-       console.log(response)
-       let mealCategory = response.data.records[0].fields.Category;
-       let mealName = response.data.records[0].fields.Name;
-    let cookDate = response.data.records[0].fields.cook_date; 
-    let imageLink = response.data.records[0].fields.image_link; 
-    let recipeLink = response.data.records[0].fields.recipe_link;  
+	axios
+		.get('/meal_planner')
+		.then((response) => {
+			console.log(response);
+			let mealCategory = response.data.records[0].fields.Category;
+			let mealName = response.data.records[0].fields.Name;
+			let cookDate = response.data.records[0].fields.cook_date;
+			let imageLink = response.data.records[0].fields.image_link;
+			let recipeLink = response.data.records[0].fields.recipe_link;
 
-       console.log(mealCategory) 
-       console.log(mealName) 
-       console.log(cookDate) 
-       console.log(imageLink) 
-       console.log(recipeLink) 
-         
-    })
-    .catch((err) => {
-        console.log(err)
-    });
-  }
+			console.log(mealCategory);
+			console.log(mealName);
+			console.log(cookDate);
+			console.log(imageLink);
+			console.log(recipeLink);
+		})
+		.catch((err) => {
+			console.log(err);
+		});
+}
 
- 
 let my_movies = [];
 
-  my_form.addEventListener("submit", (e)=> {
-e.preventDefault();
-const new_Meals = {
-   Name : name.value,
-   Category: `${category.value}`,
-   image_link: imageLink.value,
-   cook_date: cookDate.value,
-   recipe_link: recipeLink.value
+my_form.addEventListener('submit', (e) => {
+	e.preventDefault();
+	const new_Meals = {
+		Name        : name.value,
+		Category    : `${category.value}`,
+		image_link  : imageLink.value,
+		cook_date   : cookDate.value,
+		recipe_link : recipeLink.value
+	};
+	axios
+		.post('/meal_planner', {
+			fields     : new_Meals,
+			typecast : true
+		})
+		.then((res) => {
+			console.log(res);
+			my_movies.unshift(new_Meals);
+			console.log(my_movies);
+			name.value = '';
+			category.value = '';
+			imageLink.value = '';
+			recipeLink.value = '';
+			cookDate.value = '';
+		})
+		.catch((err) => {
+			console.log(err);
+		});
+	// console.log(new_Meals);
 
-};
-   axios.post('/meal_planner', {
-      fields: new_Meals,
-      "typecast" : true
-   }).then((res)=>{
-      console.log(res)
-      my_movies.unshift(new_Meals)
-      console.log(my_movies)
-      name.value ='';
-      category.value='';
-      imageLink.value='';
-      recipeLink.value='';
-      cookDate.value='';
-   }).catch(err=>{
-      console.log(err)
-   })
-   // console.log(new_Meals);
-
-
-
-      axios.get('/meal_planner')
-      .then((response) => {
-         console.log(response.data)
-         let various_meals = response.data.records;
-         console.log(various_meals)
-         console.log(various_meals[0].fields)
-         let meals_outputted = '';
-      various_meals.forEach(index =>{
-          meals_outputted += `
+	axios.get('/meal_planner').then((response) => {
+		console.log(response.data);
+		let various_meals = response.data.records;
+		console.log(various_meals);
+		console.log(various_meals[0].fields);
+		let meals_outputted = '';
+		various_meals.forEach((index) => {
+			meals_outputted += `
              
       <div>
           <img src="${index.fields.image_link}" width="300px" height="250px" >
@@ -99,33 +96,12 @@ const new_Meals = {
          
        </div>
        </div>
-          `
-      })
-         
-         dishes.innerHTML = meals_outputted;  
-      })
+          `;
+		});
 
-  
+		dishes.innerHTML = meals_outputted;
+	});
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //  let my_end_piont = 'https://api.airtable.com/v0/apphTMQhXgmltakx8/Table%201?api_key=keyCG9udfoxuLbYEj';
 
@@ -135,14 +111,14 @@ const new_Meals = {
 //      console.log(data_respnse.records)
 //      let mealCategory = data_respnse.records[0].fields.Category;
 //      let mealName = data_respnse.records[0].fields.Name;
-//   let cookDate = data_respnse.records[0].fields.cook_date; 
-//   let imageLink = data_respnse.records[0].fields.image_link; 
-//   let recipeLink = data_respnse.records[0].fields.recipe_link; 
-//   console.log(mealCategory) 
-//   console.log(mealName) 
-//   console.log(cookDate) 
-//   console.log(imageLink) 
-//   console.log(recipeLink) 
+//   let cookDate = data_respnse.records[0].fields.cook_date;
+//   let imageLink = data_respnse.records[0].fields.image_link;
+//   let recipeLink = data_respnse.records[0].fields.recipe_link;
+//   console.log(mealCategory)
+//   console.log(mealName)
+//   console.log(cookDate)
+//   console.log(imageLink)
+//   console.log(recipeLink)
 //   })
 //   .catch((err)=> {
 //      console.log(err)
